@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:Практика_6"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/Colors/DefaultColor.xaml"/>
+                <ResourceDictionary Source="/Styles/UI/Button.xaml"/>
+                <ResourceDictionary Source="/Styles/UI/TextBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

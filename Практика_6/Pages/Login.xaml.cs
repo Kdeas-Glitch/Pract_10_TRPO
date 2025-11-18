@@ -69,9 +69,9 @@ namespace Практика_7.Pages
                     MessageBox.Show("Такого id нет");
                 }
             }
-            catch (IOException a)
+            catch
             {
-                MessageBox.Show("Ошибка");
+                MessageBox.Show("Пусто");
             }
         }
         private void Regist(object sender, RoutedEventArgs e)
