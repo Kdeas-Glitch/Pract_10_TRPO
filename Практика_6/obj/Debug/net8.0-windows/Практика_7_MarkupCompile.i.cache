@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\HardShop\Desktop\Projects\Pract_8_TRPO\Практика_6\App.xaml
-13233994305
+171679211903
 
-172018535497
+19-661348347
 198-192518753
-MainWindow.xaml;Pages\Change_Information.xaml;Pages\Create_Patient.xaml;Pages\Login.xaml;Pages\Main_Page.xaml;Pages\Priem.xaml;Pages\Registration.xaml;Styles\Colors\DarkColors.xaml;Styles\Colors\DefaultColor.xaml;Styles\Theme\Default.xaml;Styles\UI\Button.xaml;Styles\UI\Pages.xaml;Styles\UI\TextBox.xaml;
+MainWindow.xaml;Pages\Change_Information.xaml;Pages\Create_Patient.xaml;Pages\Login.xaml;Pages\Main_Page.xaml;Pages\Priem.xaml;Pages\Registration.xaml;Styles\Colors\DarkColors.xaml;Styles\Colors\DefaultColor.xaml;Styles\Theme\Default.xaml;Styles\UI\Button.xaml;Styles\UI\Label.xaml;Styles\UI\ListView.xaml;Styles\UI\Pages.xaml;Styles\UI\TextBlock.xaml;Styles\UI\TextBox.xaml;Styles\UI\Window.xaml;
 
 False
 

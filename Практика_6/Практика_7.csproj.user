@@ -36,5 +36,17 @@
     <Page Update="Pages\Registration.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\UI\Label.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\UI\ListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\UI\TextBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\UI\Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

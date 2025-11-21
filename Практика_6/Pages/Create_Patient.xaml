@@ -41,7 +41,7 @@
                 <TextBox Height="25" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding BirthDay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Label Grid.Row="4" Grid.Column="0" Margin="2 3">Номер телефона:</Label>
                 <TextBox Height="25" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                <Button Grid.Row="9" Grid.Column="1" Click="Regiser_pac">Зарегестрировать</Button>
+                <Button Grid.Row="9" Grid.Column="1" Click="Regiser_pac" Style="{DynamicResource Add_Button}">Зарегестрировать</Button>
                 <Button Grid.Row="9" Grid.Column="2" Click="Go_Back">Назад</Button>
             </Grid>
         </Grid>

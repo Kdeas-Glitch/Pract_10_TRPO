@@ -81,7 +81,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Click="Create_pat">Создать пациента</Button>
+            <Button Click="Create_pat" Style="{DynamicResource Add_Button}" >Создать пациента</Button>
             <Button Grid.Column="1" Click="Start_Rec">Начать прием</Button>
             <Button Grid.Column="2" Click="Change_Inf">Изменить информацию</Button>
         </Grid>

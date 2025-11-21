@@ -28,18 +28,33 @@ namespace Практика_7.Pages
     {
         private Doctor people = new Doctor();
         private Pacient patient = new Pacient();
-        private List<Reception> reception = new List<Reception>();
+        public ObservableCollection<Reception> reception { get; set; } = new();
         ObservableCollection<Pacient> pacients;
+        public Reception? SelectedPac { get; set; }
         public Priem(Doctor d, ObservableCollection<Pacient> Pacients)
         {
             InitializeComponent();
             people = d;
             Priem_Pat.DataContext = patient;
             FindPatient.DataContext = patient;
+            List_Pac_Ap.DataContext = this;
             pacients = Pacients;
+            reception = new ObservableCollection<Reception>();
         }
 
+        private void Delete_Priem(object sender, RoutedEventArgs e)
+        {
+            if (SelectedPac == null)
+            {
+                MessageBox.Show("Пользователь не выбран");
+                return;
+            }
+            else
+            {
+                reception.Remove(SelectedPac);
+            }
 
+        }
         private void Save_Priem(object sender, RoutedEventArgs e)
         {
             try
@@ -58,7 +73,6 @@ namespace Практика_7.Pages
                         currentpacient.AppointmentStories.Add(r);
                         patient = currentpacient;
                         reception = patient.AppointmentStories;
-                        List_Rec.ItemsSource = reception;
                         string jsonString = JsonSerializer.Serialize(currentpacient);
                         string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                         File.WriteAllText(fileName, jsonString);
@@ -88,34 +102,31 @@ namespace Практика_7.Pages
             {
                 if (patient.Id != "" && patient.Id != null)
                 {
-                        int i = Convert.ToInt32(patient.Id);
-                        string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
-                        if (File.Exists(fileName))
+                    int i = Convert.ToInt32(patient.Id);
+                    string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
+                    if (File.Exists(fileName))
+                    {
+                        string jsonString = File.ReadAllText(fileName);
+                        patient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
+                        if (patient != null)
                         {
-                            string jsonString = File.ReadAllText(fileName);
-                            patient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
-                            if (patient != null)
-                            {
-                                Priem_Pat.DataContext = patient;
-                                patient.Id = $"{i}";
-                            reception =patient.AppointmentStories;
-                            List_Rec.ItemsSource = reception;
-                            //fileName = $"D_{patient.AppointmentStories.ToString().PadLeft(5, '0')}.json";
-                            //jsonString = File.ReadAllText(fileName);
-                            //Doctor BDoc = JsonSerializer.Deserialize<Doctor>(jsonString)!;
-
-                        }
-                            else
-                            {
-                                MessageBox.Show("Пусто(");
-                            }
-
+                            Priem_Pat.DataContext = patient;
+                            patient.Id = $"{i}";
+                            reception=patient.AppointmentStories;
+                            reception.Add(new Reception() { Date = "09.09.09", Diagnosis = "asd", Doctor_id = 5 });
                         }
                         else
                         {
-                            MessageBox.Show("Такого id нет");
+                            MessageBox.Show("Пусто(");
                         }
-                        FindPatient.DataContext = patient;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такого id нет");
+                    }
+                    FindPatient.DataContext = patient;
+
                 }
                 else
                 {

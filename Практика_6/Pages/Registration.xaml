@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Практика_7.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      
       Title="Registration">
 
     <Grid>
@@ -53,9 +54,10 @@
                 </Grid>
 
             </Grid>
-            <StackPanel Grid.Row="3" Orientation="Horizontal" Width="400" HorizontalAlignment="Center">
-                <Button Height="20" Margin="5 0" Width="150" Click="Regist">Зарегестрироваться</Button>
-                <Button Height="20" Width="150" Click="Log_in">Войти</Button>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" >
+                <Button  Width="150" Click="Regist" Style="{DynamicResource Add_Button}">Зарегестрироваться</Button>
+                <Button  Width="150" Click="Log_in">Войти</Button>
+                <Button Click="ChangeTheme" >Сменить тему</Button>
             </StackPanel>
         </Grid>
     </Grid>

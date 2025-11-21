@@ -32,6 +32,14 @@ namespace Практика_7.Pages
             InitializeComponent();
             regForm.DataContext = CurrentUser;
         }
+        private void ChangeTheme(object sender, RoutedEventArgs e)
+        {
+            //this.Background = Brushes.Beige;
+            ThemeHelper.Toggle();
+            
+        }
+
+
         private void Regist(object sender, RoutedEventArgs e)
         {
             try

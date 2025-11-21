@@ -32,6 +32,13 @@ namespace Практика_7.Pages
             Cor_p.DataContext = pass;
 
         }
+        private void ChangeTheme(object sender, RoutedEventArgs e)
+        {
+            //this.Background = Brushes.Beige;
+            ThemeHelper.Toggle();
+
+        }
+
         private void Login_Doc(object sender, RoutedEventArgs e)
         {
             try

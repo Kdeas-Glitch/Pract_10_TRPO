@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Windows.Documents;
+
 using Практика_7.Classes;
 
 namespace Практика_7
@@ -18,8 +21,7 @@ namespace Практика_7
         private string middle_name;
         private string birthday;
         private string phoneNumber;
-        private List<Reception> appointmentStories=new List<Reception>();
-
+        private ObservableCollection<Reception> appointmentStories = new();
         
         
 
@@ -49,10 +51,16 @@ namespace Практика_7
             get => phoneNumber;
             set { phoneNumber = value; OnPropertyChanged(); }
         }
-        public List<Reception> AppointmentStories
+        public ObservableCollection<Reception> AppointmentStories
         {
             get => appointmentStories;
-            set { appointmentStories = value; OnPropertyChanged(); }
+            set {
+                appointmentStories.Clear();
+                    foreach(var a in value)
+                {
+                    appointmentStories.Add(a);
+
+                } OnPropertyChanged(); }
         }
 
 

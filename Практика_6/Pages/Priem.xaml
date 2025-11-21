@@ -23,19 +23,21 @@
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
             <Label>Введите Индентификатор:</Label>
-            
+
             <TextBox Grid.Row="1" Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Button Grid.Row="1" Grid.Column="1" Click="Find">Найти</Button>
+            <Button Grid.Row="0" Grid.Column="1" Click="Delete_Priem">Удалить</Button>
         </Grid>
-        <Grid Grid.Row="1"> 
+        <Grid Grid.Row="1" x:Name="List_Pac_Ap">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
-            <ListView x:Name="List_Rec" Grid.Column="1"  >
+            <ListView Grid.Column="2" ItemsSource="{Binding reception}" SelectedItem="{Binding SelectedPac}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -59,7 +61,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Grid x:Name="Priem_Pat" Height="400" Grid.Row="1">
+            <Grid x:Name="Priem_Pat" Height="400" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -89,11 +91,11 @@
                 <TextBox Height="25" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding Diagnosis, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Label Grid.Row="5" Grid.Column="0" Margin="2 3">Рекомендации:</Label>
                 <TextBox Height="20" Grid.Row="6" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Recomendations, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                <Button Grid.Row="7" Grid.Column="0" Click="Save_Priem">Сохранить</Button>
+                <Button Grid.Row="7" Grid.Column="0" Click="Save_Priem" Style="{DynamicResource Add_Button}">Сохранить</Button>
                 <Button Grid.Row="7" Grid.Column="1" Click="Go_Back">Назад</Button>
                 <Button Grid.Row="8" Grid.ColumnSpan="2" Click="Change_Inf">Изменить информацию пациента</Button>
             </Grid>
         </Grid>
-        
+
     </Grid>
 </Page>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -27,10 +30,12 @@ namespace Практика_6
         private Pacient patient = new Pacient();
         private Passwords pass = new Passwords();
         private System_onl sys = new System_onl();
+        private ObservableCollection<Pacient> pacients = new ObservableCollection<Pacient>();
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Login());
+            MainFrame.Navigate(new Priem(CurrentUser,pacients));
+            ThemeHelper.ApplySaved();
             //regForm.DataContext = CurrentUser;
 
             //Sec_Win.DataContext = people;

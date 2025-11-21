@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Практика_6;
+using Практика_7;
 
 namespace Практика_7.Pages
 {
@@ -35,10 +36,10 @@ namespace Практика_7.Pages
             int i = 0;
             while (true)
             {
-                if (File.Exists($"D_{i.ToString().PadLeft(7, '0')}.json"))
+                if (File.Exists($"P_{i.ToString().PadLeft(7, '0')}.json"))
                 {
                     Pacient pacient = new Pacient();
-                    string fileName = $"D_{i.ToString().PadLeft(7, '0')}.json";
+                    string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                     string jsonString = File.ReadAllText(fileName);
                     pacient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
                     pacient.Id = i.ToString();

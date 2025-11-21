@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Pract_8_TRPO/1.0.0": {
+        "runtime": {
+          "Pract_8_TRPO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Pract_8_TRPO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
