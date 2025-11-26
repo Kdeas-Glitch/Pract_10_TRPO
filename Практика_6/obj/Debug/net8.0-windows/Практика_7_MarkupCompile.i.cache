@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\
+C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\
 Практика_7
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\App.xaml
-181721368314
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\App.xaml
+19970802785
 
 20-1835639772
-198-192518753
-MainWindow.xaml;Pages\Change_Information.xaml;Pages\Create_Patient.xaml;Pages\Login.xaml;Pages\Main_Page.xaml;Pages\Priem.xaml;Pages\Registration.xaml;Pages\Theme_Change.xaml;Styles\Colors\DarkColors.xaml;Styles\Colors\DefaultColor.xaml;Styles\Theme\Default.xaml;Styles\UI\Button.xaml;Styles\UI\Label.xaml;Styles\UI\ListView.xaml;Styles\UI\Pages.xaml;Styles\UI\TextBlock.xaml;Styles\UI\TextBox.xaml;Styles\UI\Window.xaml;
+1981451641563
+MainWindow.xaml;Pages\Change_Information.xaml;Pages\Create_Patient.xaml;Pages\Login.xaml;Pages\Main_Page.xaml;Pages\Priem.xaml;Pages\Registration.xaml;Pages\Theme_Change.xaml;Styles\Colors\DarkColors.xaml;Styles\Colors\DefaultColor.xaml;Styles\Theme\Default.xaml;Styles\UI\Button.xaml;Styles\UI\Label.xaml;Styles\UI\ListView.xaml;Styles\UI\Menu_Style.xaml;Styles\UI\Pages.xaml;Styles\UI\TextBlock.xaml;Styles\UI\TextBox.xaml;Styles\UI\Window.xaml;
 
-True
+False
 

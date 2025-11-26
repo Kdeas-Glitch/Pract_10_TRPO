@@ -54,10 +54,9 @@
                 </Grid>
 
             </Grid>
-            <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Grid.ColumnSpan="3">
                 <Button  Width="150" Click="Regist" Style="{DynamicResource Add_Button}">Зарегестрироваться</Button>
                 <Button  Width="150" Click="Log_in">Войти</Button>
-                <Button Click="ChangeTheme" >Сменить тему</Button>
             </StackPanel>
         </Grid>
     </Grid>

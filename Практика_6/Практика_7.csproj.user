@@ -45,6 +45,9 @@
     <Page Update="Styles\UI\ListView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\UI\Menu_Style.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Styles\UI\TextBlock.xaml">
       <SubType>Designer</SubType>
     </Page>

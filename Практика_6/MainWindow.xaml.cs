@@ -57,7 +57,7 @@ namespace Практика_6
         }
         private void Change_Theme(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Theme_Change());
+            ThemeHelper.Toggle();
         }
         //private void Count()
         //{
