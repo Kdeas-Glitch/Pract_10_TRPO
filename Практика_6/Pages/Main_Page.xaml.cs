@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Практика_6;
 using Практика_7;
+using Практика_7.Classes;
 
 namespace Практика_7.Pages
 {
@@ -29,12 +30,13 @@ namespace Практика_7.Pages
         private Doctor people = new Doctor();
         private System_onl sys = new System_onl();
         public int idef = 0;
-        private ObservableCollection<Pacient> pacients= new ObservableCollection<Pacient>();
+        public ObservableCollection<Pacient> Pacients { get; set; } = new();
+        public Pacient? SelectedPac { get; set; }
         public Main_Page(Doctor d)
         {
-            InitializeComponent();
             int i = 0;
-            while (true)
+            int a = 0;
+            while (i<100)
             {
                 if (File.Exists($"P_{i.ToString().PadLeft(7, '0')}.json"))
                 {
@@ -43,18 +45,15 @@ namespace Практика_7.Pages
                     string jsonString = File.ReadAllText(fileName);
                     pacient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
                     pacient.Id = i.ToString();
-                    pacients.Add(pacient);
-                    i++;
+                    Pacients.Add(pacient);
+                    a++;
                 }
-                else
-                {
-                    sys.Pac = i.ToString();
-                    break;
-                }
+                i++;
             }
-
+                    sys.Pac = a.ToString();
+            InitializeComponent();
+            DataContext = this;
             System_.DataContext = sys;
-            List_Rec.ItemsSource = pacients;
             people = d;
             Sec_Win.DataContext = people;
         }
@@ -62,15 +61,80 @@ namespace Практика_7.Pages
 
         private void Create_pat(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Create_Patient(people,pacients,sys));
+
+            NavigationService.Navigate(new Create_Patient(people,Pacients,sys));
         }
         private void Start_Rec(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Priem(people,pacients));
+            if (SelectedPac == null)
+            {
+                MessageBox.Show("Пациент не выбран");
+                return;
+            }
+            NavigationService.Navigate(new Priem(people,Pacients,SelectedPac));
         }
         private void Change_Inf(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Change_Information(pacients));
+            if (SelectedPac == null)
+            {
+                MessageBox.Show("Пациент не выбран");
+                return;
+            }
+            NavigationService.Navigate(new Change_Information(Pacients,SelectedPac));
+        }
+        private void Delete_Pac(object sender, RoutedEventArgs e)
+        {
+            int i = Convert.ToInt32(Pacients[Pacients.Count-1].Id);
+            if (SelectedPac == null)
+            {
+                MessageBox.Show("Пациент не выбран");
+                return;
+            }
+            string fileName = $"P_{SelectedPac.Id.ToString().PadLeft(7, '0')}.json";
+            File.Delete(fileName);
+            for(int j = Convert.ToInt32(SelectedPac.Id); j < i; j++)
+            {
+                if (File.Exists($"P_{j.ToString().PadLeft(7, '0')}.json"))
+                {
+                    Pacient pacient = new Pacient();
+                    fileName = $"P_{j.ToString().PadLeft(7, '0')}.json";
+
+                    string jsonString = File.ReadAllText(fileName);
+                    pacient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
+                    pacient.Id = j.ToString();
+                    jsonString = JsonSerializer.Serialize(pacient);
+                    fileName = $"P_{(j+1).ToString().PadLeft(7, '0')}.json";
+                    File.WriteAllText(fileName, jsonString);
+                }
+                else
+                {
+                    sys.Pac = i.ToString();
+                    break;
+                }
+            }
+            //while (true)
+            //{
+            //    if (File.Exists($"P_{i.ToString().PadLeft(7, '0')}.json"))
+            //    {
+            //        Pacient pacient = new Pacient();
+            //        fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
+                    
+            //        string jsonString = File.ReadAllText(fileName);
+            //        pacient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
+            //        pacient.Id = i.ToString();
+            //        jsonString = JsonSerializer.Serialize(pacient);
+            //        int a = i+1;
+            //        fileName = $"P_{a.ToString().PadLeft(7, '0')}.json";
+            //        File.WriteAllText(fileName, jsonString);
+            //        i++;
+            //    }
+            //    else
+            //    {
+            //        sys.Pac = i.ToString();
+            //        break;
+            //    }
+            //}
+            Pacients.Remove(SelectedPac);
         }
     }
 }

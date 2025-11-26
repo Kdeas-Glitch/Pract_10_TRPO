@@ -26,53 +26,15 @@ namespace Практика_7.Pages
     {
         private Pacient patient = new Pacient();
         ObservableCollection<Pacient> pacients;
-        public Change_Information(ObservableCollection<Pacient> Pacients)
+        public Change_Information(ObservableCollection<Pacient> Pacients,Pacient pat)
         {
             InitializeComponent();
             pacients = Pacients;
-            FindPatient.DataContext = patient;
-
+            patient = pat;
+            Change_pacient.DataContext = patient;
         }
 
-        private void Find(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (patient.Id != "" && patient.Id != null)
-                {
-                        int i = Convert.ToInt32(patient.Id);
-                        string fileName = $"D_{i.ToString().PadLeft(7, '0')}.json";
-                        if (File.Exists(fileName))
-                        {
-                            string jsonString = File.ReadAllText(fileName);
-                            patient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
-                        patient.Id = i.ToString();
-                        pacients[i] = patient;
-                            if (patient != null)
-                            {
-                                Change_pacient.DataContext = patient;
-                            }
-                            else
-                            {
-                                MessageBox.Show("Пусто(");
-                            }
-
-                        }
-                        else
-                        {
-                            MessageBox.Show("Такого id нет");
-                        }
-                }
-                else
-                {
-                    MessageBox.Show("Пустое поле!");
-                }
-            }
-            catch (IOException a)
-            {
-                MessageBox.Show("Ошибка");
-            }
-        }
+         
         private void Back_Changes(object sender, RoutedEventArgs e)
         {
             if (patient.Name != null)

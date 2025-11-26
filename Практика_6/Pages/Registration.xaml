@@ -38,18 +38,18 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Grid.Column="0" Margin="5">Имя:</Label>
-                        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1" Height="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <Label Grid.Row="1" Grid.Column="0" Margin="5">Фамилия:</Label>
-                        <TextBox Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Height="20" Text="{Binding Last_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <Label Grid.Row="2" Grid.Column="0" Margin="5">Отчество:</Label>
-                        <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" Height="20" Text="{Binding Middle_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <Label Grid.Row="3" Grid.Column="0" Margin="5">Специальность:</Label>
-                        <TextBox Height="25" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Specialisation, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <Label Grid.Row="4" Grid.Column="0" Margin="5">Пароль:</Label>
-                        <TextBox Height="25" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                        <Label Grid.Row="5" Grid.Column="0" Margin="2 3" Content=" Подтвердите Пароль:"></Label>
-                        <TextBox Height="25" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Cor_Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="0" Grid.Column="0">Имя:</Label>
+                        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="0" >Фамилия:</Label>
+                        <TextBox Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Last_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0">Отчество:</Label>
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Middle_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="3" Grid.Column="0" >Специальность:</Label>
+                        <TextBox  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Specialisation, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="4" Grid.Column="0" >Пароль:</Label>
+                        <TextBox  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Label Grid.Row="5" Grid.Column="0" Content=" Подтвердите Пароль:"></Label>
+                        <TextBox  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Cor_Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     </Grid>
                 </Grid>
 

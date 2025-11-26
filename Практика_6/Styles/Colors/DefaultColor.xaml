@@ -7,5 +7,7 @@
     <SolidColorBrush x:Key="ButtonBorder" Color="Green"/>
     <SolidColorBrush x:Key="BackgroundPages" Color="White"/>
     <SolidColorBrush x:Key="TextForeground" Color="Black"/>
+    <SolidColorBrush x:Key="TextBoxForeground" Color="White"/>
     <SolidColorBrush x:Key="ButtonHoverForeground" Color="White"/>
+    <SolidColorBrush x:Key="TextBackground" Color="Black"/>
 </ResourceDictionary>

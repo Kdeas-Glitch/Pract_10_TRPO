@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_8_TRPO\\Pract_8_TRPO\\Pract_8_TRPO.csproj": {}
+    "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_9_Trpo\\Pract_8_TRPO\\Pract_8_TRPO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_8_TRPO\\Pract_8_TRPO\\Pract_8_TRPO.csproj": {
+    "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_9_Trpo\\Pract_8_TRPO\\Pract_8_TRPO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_8_TRPO\\Pract_8_TRPO\\Pract_8_TRPO.csproj",
+        "projectUniqueName": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_9_Trpo\\Pract_8_TRPO\\Pract_8_TRPO.csproj",
         "projectName": "Pract_8_TRPO",
-        "projectPath": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_8_TRPO\\Pract_8_TRPO\\Pract_8_TRPO.csproj",
+        "projectPath": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_9_Trpo\\Pract_8_TRPO\\Pract_8_TRPO.csproj",
         "packagesPath": "C:\\Users\\HardShop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_8_TRPO\\Pract_8_TRPO\\obj\\",
+        "outputPath": "C:\\Users\\HardShop\\Desktop\\Projects\\Pract_9_Trpo\\Pract_8_TRPO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

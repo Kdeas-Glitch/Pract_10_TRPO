@@ -10,7 +10,7 @@ namespace Практика_6
 {
     public class Passwords : INotifyPropertyChanged
     {
-        private string cor_pass;
+        private string cor_pass="1234";
         public string Cor_Password
         {
             get => cor_pass;

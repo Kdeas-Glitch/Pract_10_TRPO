@@ -55,7 +55,6 @@ namespace Практика_7
         {
             get => appointmentStories;
             set {
-                appointmentStories.Clear();
                     foreach(var a in value)
                 {
                     appointmentStories.Add(a);

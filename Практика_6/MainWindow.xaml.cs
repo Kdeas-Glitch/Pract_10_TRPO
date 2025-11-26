@@ -34,7 +34,7 @@ namespace Практика_6
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new Priem(CurrentUser,pacients));
+            MainFrame.Navigate(new Login());
             ThemeHelper.ApplySaved();
             //regForm.DataContext = CurrentUser;
 
@@ -54,6 +54,10 @@ namespace Практика_6
             //System_.DataContext = sys;
 
             //Count();
+        }
+        private void Change_Theme(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Theme_Change());
         }
         //private void Count()
         //{

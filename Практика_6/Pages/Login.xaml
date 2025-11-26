@@ -19,12 +19,11 @@
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="165"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Margin="5" >ID:</Label>
-        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1" Name="_ID"></TextBox>
-        <Label Grid.Row="1" Grid.Column="0" Margin="5" >Пароль:</Label>
+        <Label Grid.Row="0" Grid.Column="0"  >ID:</Label>
+        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1" Name="_ID">6</TextBox>
+        <Label Grid.Row="1" Grid.Column="0"  >Пароль:</Label>
         <TextBox Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Name="Cor_p" Text="{Binding Cor_Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Button Click="Login_Doc" Grid.Row="2" Grid.ColumnSpan="2" >Войти</Button>
         <Button  Grid.Row="3" Grid.ColumnSpan="2" Click="Regist" Style="{DynamicResource Add_Button}" >Регистрация</Button>
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Click="ChangeTheme" >Сменить тему</Button>
     </Grid>
 </Page>

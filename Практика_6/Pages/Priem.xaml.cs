@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using Практика_6;
+using Практика_7;
 using Практика_7.Classes;
 
 namespace Практика_7.Pages
@@ -27,23 +28,29 @@ namespace Практика_7.Pages
     public partial class Priem : Page
     {
         private Doctor people = new Doctor();
-        private Pacient patient = new Pacient();
-        public ObservableCollection<Reception> reception { get; set; } = new();
-        ObservableCollection<Pacient> pacients;
+        public Pacient patient = new Pacient();
+        public Pacient patients = new Pacient();
+        public ObservableCollection<Reception> Receptions { get; set; } = new();
+        public ObservableCollection<Pacient> Pacients { get; set; } = new();
+        public ObservableCollection<Pacient> Pacients2 { get; set; } = new();
+
         public Reception? SelectedPac { get; set; }
-        public Priem(Doctor d, ObservableCollection<Pacient> Pacients)
+        public Priem(Doctor d, ObservableCollection<Pacient> Pacientes, Pacient pacientos)
         {
+            Pacients = Pacientes;
+
+            Receptions = pacientos.AppointmentStories;
+            patients = pacientos;
             InitializeComponent();
             people = d;
             Priem_Pat.DataContext = patient;
-            FindPatient.DataContext = patient;
-            List_Pac_Ap.DataContext = this;
-            pacients = Pacients;
-            reception = new ObservableCollection<Reception>();
+            DataContext = this;
+            
         }
 
         private void Delete_Priem(object sender, RoutedEventArgs e)
         {
+
             if (SelectedPac == null)
             {
                 MessageBox.Show("Пользователь не выбран");
@@ -51,7 +58,16 @@ namespace Практика_7.Pages
             }
             else
             {
-                reception.Remove(SelectedPac);
+                patients.AppointmentStories.Remove(SelectedPac);
+                var currentpacient = patients;
+                    int i = Convert.ToInt32(patients.Id);
+                    Receptions = patients.AppointmentStories;
+                    string jsonString = JsonSerializer.Serialize(currentpacient);
+                    string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
+                    File.WriteAllText(fileName, jsonString);
+                    Receptions.Remove(SelectedPac);
+
+
             }
 
         }
@@ -72,7 +88,7 @@ namespace Практика_7.Pages
                         r.Recomendations = patient.Recomendations;
                         currentpacient.AppointmentStories.Add(r);
                         patient = currentpacient;
-                        reception = patient.AppointmentStories;
+                        Receptions = patient.AppointmentStories;
                         string jsonString = JsonSerializer.Serialize(currentpacient);
                         string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                         File.WriteAllText(fileName, jsonString);
@@ -96,56 +112,13 @@ namespace Практика_7.Pages
             }
         }
 
-        private void Find(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                if (patient.Id != "" && patient.Id != null)
-                {
-                    int i = Convert.ToInt32(patient.Id);
-                    string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
-                    if (File.Exists(fileName))
-                    {
-                        string jsonString = File.ReadAllText(fileName);
-                        patient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
-                        if (patient != null)
-                        {
-                            Priem_Pat.DataContext = patient;
-                            patient.Id = $"{i}";
-                            reception=patient.AppointmentStories;
-                            reception.Add(new Reception() { Date = "09.09.09", Diagnosis = "asd", Doctor_id = 5 });
-                        }
-                        else
-                        {
-                            MessageBox.Show("Пусто(");
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Такого id нет");
-                    }
-                    FindPatient.DataContext = patient;
-
-                }
-                else
-                {
-                    MessageBox.Show("Пустое поле!");
-                }
-            }
-            catch (IOException a)
-            {
-                MessageBox.Show("Ошибка");
-            }
-        }
-
         private void Go_Back(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
         private void Change_Inf(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Change_Information(pacients));
+            NavigationService.Navigate(new Change_Information(Pacients, patients));
         }
     }
 }

@@ -249,7 +249,20 @@
         </Grid>
         
     </StackPanel>-->
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+        <Button x:Name="Button_Change" Click="Change_Theme">Сменить тему</Button>
+    <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+
+
+
+
+
+
 
 
 

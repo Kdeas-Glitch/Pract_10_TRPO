@@ -26,14 +26,14 @@
                 <ColumnDefinition Width="110"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Margin="5">ID:</Label>
-            <Label Grid.Row="0" Grid.Column="1" Height="35" Content="{Binding Id}"></Label>
-            <Label Grid.Row="1" Grid.Column="0" Margin="5">ФИО:</Label>
-            <Label Grid.Row="1" Grid.Column="1" Height="35" Content="{Binding Name}"></Label>
-            <Label Grid.Row="2" Grid.Column="0" Margin="5">Специальность:</Label>
-            <Label Grid.Row="2" Grid.Column="1" Height="35" Content="{Binding Specialisation}"></Label>
-            <Label Grid.Row="3" Grid.Column="0" Margin="5">Пароль:</Label>
-            <Label Grid.Row="3" Grid.Column="1" Height="35" Content="{Binding Password}"></Label>
+            <Label Grid.Row="0" Grid.Column="0" >ID:</Label>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding Id}"></Label>
+            <Label Grid.Row="1" Grid.Column="0">ФИО:</Label>
+            <Label Grid.Row="1" Grid.Column="1"  Content="{Binding Name}"></Label>
+            <Label Grid.Row="2" Grid.Column="0" >Специальность:</Label>
+            <Label Grid.Row="2" Grid.Column="1"  Content="{Binding Specialisation}"></Label>
+            <Label Grid.Row="3" Grid.Column="0" >Пароль:</Label>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Password}"></Label>
         </Grid>
         <Grid x:Name="System_" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -48,7 +48,7 @@
             <Label>Всего Пациентов:</Label>
             <Label Grid.Column="1" Content="{Binding Pac, UpdateSourceTrigger=PropertyChanged}"></Label>
         </Grid>
-        <ListView x:Name="List_Rec" Grid.Row="3">
+        <ListView  Grid.Row="3" ItemsSource="{Binding Pacients}" SelectedItem="{Binding SelectedPac}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -80,10 +80,12 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Click="Create_pat" Style="{DynamicResource Add_Button}" >Создать пациента</Button>
             <Button Grid.Column="1" Click="Start_Rec">Начать прием</Button>
             <Button Grid.Column="2" Click="Change_Inf">Изменить информацию</Button>
+            <Button Grid.Column="3" Click="Delete_Pac"  Style="{DynamicResource Delete_button}">Удалить пациента</Button>
         </Grid>
     </Grid>
 </Page>
