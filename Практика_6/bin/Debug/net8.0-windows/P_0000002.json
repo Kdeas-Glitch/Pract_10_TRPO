@@ -1,1 +1,15 @@
-{"Name":"q","Last_Name":"q","Middle_Name":"q","BirthDay":"q","PhoneNumber":null,"AppointmentStories":[{"Date":"2025-11-17 8:52:44 AM","Doctor_id":6,"Diagnosis":"q","Recomendations":"q"}]}
+{
+  "Name": "q",
+  "Last_Name": "q",
+  "Middle_Name": "q",
+  "BirthDay": "28.11.2000",
+  "PhoneNumber": 9991234567,
+  "AppointmentStories": [
+    {
+      "Date": "2025-11-17 8:52:44 AM",
+      "Doctor_id": 6,
+      "Diagnosis": "q",
+      "Recomendations": "q"
+    }
+  ]
+}

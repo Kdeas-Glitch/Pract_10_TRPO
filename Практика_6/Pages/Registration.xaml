@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Практика_7.Pages"
+      xmlns:validators="clr-namespace:Практика_7.ValidationRules"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       
@@ -39,17 +40,114 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Имя:</Label>
-                        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="Name" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                        <validators:OnlyLettersValidation/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="0" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=Name, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Label Grid.Row="1" Grid.Column="0" >Фамилия:</Label>
-                        <TextBox Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Last_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="LName" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Last_Name" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                        <validators:OnlyLettersValidation/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="1" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=LName, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Label Grid.Row="2" Grid.Column="0">Отчество:</Label>
-                        <TextBox Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1"  Text="{Binding Middle_Name, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="MName" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Middle_Name" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                        <validators:OnlyLettersValidation/>
+
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="2" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=MName, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Label Grid.Row="3" Grid.Column="0" >Специальность:</Label>
                         <TextBox  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Specialisation, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="Phone" Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Specialisation" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="3" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=Phone, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Label Grid.Row="4" Grid.Column="0" >Пароль:</Label>
-                        <TextBox  Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="Pass" Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                        <validators:IsNumberFloatRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="4" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=Pass, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Label Grid.Row="5" Grid.Column="0" Content=" Подтвердите Пароль:"></Label>
-                        <TextBox  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Cor_Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <TextBox Name="Pass_Cor" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="1" >
+                            <TextBox.Text>
+                                <Binding Path="Cor_Password" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:RequiredRule/>
+                                        <validators:IsNumberFloatRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                        <ItemsControl Grid.Row="5" Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=Pass_Cor, Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </Grid>
                 </Grid>
 

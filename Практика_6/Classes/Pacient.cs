@@ -8,7 +8,6 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Documents;
-
 using Практика_7.Classes;
 
 namespace Практика_7
@@ -20,7 +19,7 @@ namespace Практика_7
         private string last_name;
         private string middle_name;
         private string birthday;
-        private string phoneNumber;
+        private Int128 phoneNumber;
         private ObservableCollection<Reception> appointmentStories = new();
         
         
@@ -46,7 +45,7 @@ namespace Практика_7
             get => birthday;
             set { birthday = value; OnPropertyChanged(); }
         }
-        public string PhoneNumber
+        public Int128 PhoneNumber
         {
             get => phoneNumber;
             set { phoneNumber = value; OnPropertyChanged(); }
@@ -73,6 +72,64 @@ namespace Практика_7
         [JsonIgnore] public string Doctor_id;
         [JsonIgnore] public string Diagnosis { get; set; }
         [JsonIgnore] public string Recomendations { get; set; }
+        [JsonIgnore]
+        public string Adult
+        {
+            get
+            {
+                if(Age>=18)
+                return "Совершеннолетний";
+                else return "Не совершеннолетний";
+            }
+        }
+        [JsonIgnore]
+        public double Age
+        {
+            get
+            {
+                if(Convert.ToDateTime(birthday).Month< DateTime.Now.Month)
+                {
+                    return (DateTime.Now.Year - Convert.ToDateTime(birthday).Year);
+                }
+                else
+                {
+                    if(Convert.ToDateTime(birthday).Month == DateTime.Now.Month)
+                    {
+                        if(Convert.ToDateTime(birthday).Day < DateTime.Now.Day)
+                        {
+                            return (DateTime.Now.Year - Convert.ToDateTime(birthday).Year);
+                        }
+                        else
+                        {
+                            if (Convert.ToDateTime(birthday).Day == DateTime.Now.Day)
+                            {
+                                return (DateTime.Now.Year - Convert.ToDateTime(birthday).Year);
+                            }
+                            else
+                            {
+                                return (DateTime.Now.Year - Convert.ToDateTime(birthday).Year)-1;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return (DateTime.Now.Year - Convert.ToDateTime(birthday).Year) - 1;
+                    }
+                }
+            }
+        }
+        [JsonIgnore]
+        public string DaysFromLastRecep
+        {
+            get
+            {
+                if (AppointmentStories.Count > 0)
+                {
+                    return $"{(DateTime.Now.Day - Convert.ToDateTime(appointmentStories[appointmentStories.Count-1].Date).Day)} дней с последнего посещения";
+                }
+                else { return $"Первый прием в клинике"; }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

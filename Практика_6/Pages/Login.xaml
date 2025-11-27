@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Практика_7.Pages"
       mc:Ignorable="d" 
+      xmlns:validators="clr-namespace:Практика_7.ValidationRules"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Login">
     <Grid x:Name="Sec_Win" HorizontalAlignment="Center"  VerticalAlignment="Center">
@@ -20,9 +21,45 @@
             <ColumnDefinition Width="165"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0"  >ID:</Label>
-        <TextBox Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1" Name="_ID">6</TextBox>
+        <TextBox Name="ID" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
+                    
+                    <Binding.ValidationRules>
+                        <validators:RequiredRule/>
+                        <validators:IsNumberFloatRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+                
+            </TextBox.Text>
+        </TextBox>
+        <ItemsControl  Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=ID, Path=(Validation.Errors)}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBox Grid.Row="1" Name="Password" Grid.ColumnSpan="3" Grid.Column="1">
+            <TextBox.Text>
+                <Binding Path="Cor_Password" UpdateSourceTrigger="PropertyChanged">
+
+                    <Binding.ValidationRules>
+                        <validators:RequiredRule/>
+                        <validators:IsNumberFloatRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+
+            </TextBox.Text>
+        </TextBox>
+        <ItemsControl Grid.Row="1"  Foreground="Red" FontSize="16" ItemsSource="{Binding ElementName=Password, Path=(Validation.Errors)}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Style="{StaticResource Validation}" Text="{Binding ErrorContent}" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Label Grid.Row="1" Grid.Column="0"  >Пароль:</Label>
-        <TextBox Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="1" Name="Cor_p" Text="{Binding Cor_Password, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Button Click="Login_Doc" Grid.Row="2" Grid.ColumnSpan="2" >Войти</Button>
         <Button  Grid.Row="3" Grid.ColumnSpan="2" Click="Regist" Style="{DynamicResource Add_Button}" >Регистрация</Button>
     </Grid>

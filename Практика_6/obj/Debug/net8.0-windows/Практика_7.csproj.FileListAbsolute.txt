@@ -187,8 +187,6 @@ C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net
 C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Практика_7.sourcelink.json
 C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Практика_7.genruntimeconfig.cache
 C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\ref\Практика_7.dll
-C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Pages\Theme_Change.g.cs
-C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Pages\Theme_Change.baml
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\bin\Debug\net8.0-windows\Практика_7.exe
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\bin\Debug\net8.0-windows\Практика_7.dll.config
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\bin\Debug\net8.0-windows\Практика_7.deps.json
@@ -237,3 +235,5 @@ C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windo
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Практика_7.genruntimeconfig.cache
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\ref\Практика_7.dll
 C:\Users\st310-04\Desktop\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Styles\UI\Menu_Style.baml
+C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\Styles\UI\Menu_Style.baml
+C:\Users\HardShop\Desktop\Projects\Pract_9_Trpo\Практика_6\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs

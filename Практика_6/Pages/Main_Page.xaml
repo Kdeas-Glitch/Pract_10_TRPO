@@ -57,16 +57,29 @@
                             <TextBlock Text="{Binding Id}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Имя: "/>
-                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Text="ФИО: "/>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} {1} {2}">
+                                        <Binding Path="Name" />
+                                        <Binding Path="Middle_Name" />
+                                        <Binding Path="Last_Name" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Фамилия: "/>
-                            <TextBlock Text="{Binding Middle_Name}"/>
+                            <TextBlock Text="Телефон: "/>
+                            <TextBlock Text="{Binding PhoneNumber,StringFormat={}{0:+7 (###) ### ## ##}}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Отчество : "/>
-                            <TextBlock Text="{Binding Last_Name}"/>
+                            <TextBlock Text="Совершеннолетние : "/>
+                            <TextBlock Text="{Binding Adult}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Возраст : "/>
+                            <TextBlock Text="{Binding Age}"/>     
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

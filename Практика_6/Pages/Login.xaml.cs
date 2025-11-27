@@ -29,7 +29,7 @@ namespace Практика_7.Pages
         {
             InitializeComponent();
             Sec_Win.DataContext = people;
-            Cor_p.DataContext = pass;
+            Password.DataContext = pass;
 
         }
         private void ChangeTheme(object sender, RoutedEventArgs e)
@@ -43,15 +43,16 @@ namespace Практика_7.Pages
         {
             try
             {
-                int i = Convert.ToInt32(_ID.Text.ToString());
+                int i = Convert.ToInt32(people.Id);
                 string fileName = $"D_{i.ToString().PadLeft(5, '0')}.json";
                 if (File.Exists(fileName))
                 {
                     string jsonString = File.ReadAllText(fileName);
-                    people = JsonSerializer.Deserialize<Doctor>(jsonString)!;
+                    
                     if (people != null)
                     {
-
+                        people = null;
+                        people = JsonSerializer.Deserialize<Doctor>(jsonString)!;
                         if (people.Password == pass.Cor_Password)
                         {
                             Sec_Win.DataContext = people;

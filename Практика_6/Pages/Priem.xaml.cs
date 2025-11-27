@@ -43,7 +43,7 @@ namespace Практика_7.Pages
             patients = pacientos;
             InitializeComponent();
             people = d;
-            Priem_Pat.DataContext = patient;
+            Priem_Pat.DataContext = patients;
             DataContext = this;
             
         }
