@@ -25,6 +25,10 @@ namespace Практика_7.ValidationRules
             {
                 return new ValidationResult(false, "Необходимо ввести реальную Дату");
             }
+            if (Convert.ToDateTime(input).Year < 1926)
+            {
+                return new ValidationResult(false, "Необходимо ввести реальную Дату");
+            }
             return ValidationResult.ValidResult;
         }
     }
