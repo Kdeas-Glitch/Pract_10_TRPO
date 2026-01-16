@@ -53,7 +53,7 @@ namespace Pract_8_TRPO.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pract_8_TRPO;V1.0.0.0;component/pages/listpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pract_8_TRPO;component/pages/listpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\ListPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

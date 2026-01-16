@@ -21,6 +21,10 @@ namespace Практика_7.ValidationRules
             {
                 return new ValidationResult(false, "Необходимо ввести Дату");
             }
+            if (Convert.ToDateTime(input)>DateTime.Now)
+            {
+                return new ValidationResult(false, "Необходимо ввести реальную Дату");
+            }
             return ValidationResult.ValidResult;
         }
     }

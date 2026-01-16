@@ -51,14 +51,13 @@ namespace Практика_7.Pages
                     
                     if (people != null)
                     {
-                        people = null;
-                        people = JsonSerializer.Deserialize<Doctor>(jsonString)!;
-                        if (people.Password == pass.Cor_Password)
+                        Doctor doctor = JsonSerializer.Deserialize<Doctor>(jsonString)!;
+                        if (doctor.Password == pass.Cor_Password)
                         {
-                            Sec_Win.DataContext = people;
-                            people.Id = $"{i}";
-                            people.Name = $"{people.Name} {people.Middle_Name} {people.Last_Name}";
-                            NavigationService.Navigate(new Main_Page(people));
+                            Sec_Win.DataContext = doctor;
+                            doctor.Id = $"{i}";
+                            doctor.Name = $"{doctor.Name} {doctor.Middle_Name} {doctor.Last_Name}";
+                            NavigationService.Navigate(new Main_Page(doctor));
                         }
                         else
                         {

@@ -50,7 +50,7 @@ namespace Практика_7.Pages
                     int i = 0;
                     while (true)
                     {
-                        if (File.Exists($"D_{i.ToString().PadLeft(7, '0')}.json"))
+                        if (File.Exists($"P_{i.ToString().PadLeft(7, '0')}.json"))
                         {
                             i++;
                         }
@@ -62,7 +62,7 @@ namespace Практика_7.Pages
                     currentpacient.Id = $"{i}";
                     pacients.Add(currentpacient);
                     string jsonString = JsonSerializer.Serialize(currentpacient);
-                    string fileName = $"D_{i.ToString().PadLeft(7, '0')}.json";
+                    string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                     File.WriteAllText(fileName, jsonString);
                     MessageBox.Show($"Ваш ID={i.ToString().PadLeft(7, '0')}");
                     sys.Pac = (Convert.ToInt32(sys.Pac) + 1).ToString();

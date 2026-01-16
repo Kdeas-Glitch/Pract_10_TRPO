@@ -40,7 +40,7 @@ namespace Практика_7.Pages
             if (patient.Name != null)
             {
                 int i = Convert.ToInt32(patient.Id);
-                string fileName = $"D_{i.ToString().PadLeft(7, '0')}.json";
+                string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                 string jsonString = File.ReadAllText(fileName);
                 var Bpatient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
                 patient.Name = Bpatient.Name;
@@ -63,7 +63,7 @@ namespace Практика_7.Pages
                     {
                         int i = Convert.ToInt32(patient.Id);
                         string jsonString = JsonSerializer.Serialize(currentpacient);
-                        string fileName = $"D_{i.ToString().PadLeft(7, '0')}.json";
+                        string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                         File.WriteAllText(fileName, jsonString);
                         MessageBox.Show($"Ваш ID={i.ToString().PadLeft(7, '0')}");
                         

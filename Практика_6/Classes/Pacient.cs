@@ -125,7 +125,7 @@ namespace Практика_7
             {
                 if (AppointmentStories.Count > 0)
                 {
-                    return $"{(DateTime.Now.Day - Convert.ToDateTime(appointmentStories[appointmentStories.Count-1].Date).Day)} дней с последнего посещения";
+                    return $"{(DateTime.Now - Convert.ToDateTime(appointmentStories[appointmentStories.Count-1].Date)).Days} дней с последнего посещения";
                 }
                 else { return $"Первый прием в клинике"; }
             }
