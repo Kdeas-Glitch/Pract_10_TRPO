@@ -61,7 +61,6 @@ namespace Практика_7.Pages
 
         private void Create_pat(object sender, RoutedEventArgs e)
         {
-
             NavigationService.Navigate(new Create_Patient(people,Pacients,sys));
         }
         private void Start_Rec(object sender, RoutedEventArgs e)
@@ -112,28 +111,6 @@ namespace Практика_7.Pages
                     break;
                 }
             }
-            //while (true)
-            //{
-            //    if (File.Exists($"P_{i.ToString().PadLeft(7, '0')}.json"))
-            //    {
-            //        Pacient pacient = new Pacient();
-            //        fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
-                    
-            //        string jsonString = File.ReadAllText(fileName);
-            //        pacient = JsonSerializer.Deserialize<Pacient>(jsonString)!;
-            //        pacient.Id = i.ToString();
-            //        jsonString = JsonSerializer.Serialize(pacient);
-            //        int a = i+1;
-            //        fileName = $"P_{a.ToString().PadLeft(7, '0')}.json";
-            //        File.WriteAllText(fileName, jsonString);
-            //        i++;
-            //    }
-            //    else
-            //    {
-            //        sys.Pac = i.ToString();
-            //        break;
-            //    }
-            //}
             Pacients.Remove(SelectedPac);
         }
     }

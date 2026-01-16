@@ -30,6 +30,7 @@ namespace Практика_7.Pages
         private Doctor people = new Doctor();
         public Pacient patient = new Pacient();
         public Pacient patients = new Pacient();
+        public Reception reception = new Reception();
         public ObservableCollection<Reception> Receptions { get; set; } = new();
         public ObservableCollection<Pacient> Pacients { get; set; } = new();
         public ObservableCollection<Pacient> Pacients2 { get; set; } = new();
@@ -37,11 +38,20 @@ namespace Практика_7.Pages
         public Reception? SelectedPac { get; set; }
         public Priem(Doctor d, ObservableCollection<Pacient> Pacientes, Pacient pacientos)
         {
+            if (pacientos.Id != null)
+            {
+                if (File.Exists($"P_{pacientos.Id.ToString().PadLeft(7, '0')}.json"))
+                {
+                    string text = File.ReadAllText($"P_{pacientos.Id.ToString().PadLeft(7, '0')}.json");
+                    patients = JsonSerializer.Deserialize<Pacient>(text);
+                }
+            }
             Pacients = Pacientes;
+            Receptions = patients.AppointmentStories;
 
-            Receptions = pacientos.AppointmentStories;
-            patients = pacientos;
             InitializeComponent();
+            Recomendations.DataContext = reception;
+            Diagnosis.DataContext = reception;
             people = d;
             Priem_Pat.DataContext = patients;
             DataContext = this;
@@ -76,20 +86,18 @@ namespace Практика_7.Pages
             try
             {
                 if (people.Name != null)
-                {
-                    var currentpacient = patient;
-                    if (patient.Recomendations != null && patient.Diagnosis != null)
+                { 
+                    if (reception.Recomendations != null && reception.Diagnosis != null)
                     {
-                        int i = Convert.ToInt32(patient.Id);
+                        int i = Convert.ToInt32(patients.Id);
                         Reception r = new Reception();
                         r.Doctor_id = Convert.ToInt32(people.Id);
                         r.Date = DateTime.Now.ToString();
-                        r.Diagnosis = patient.Diagnosis;
-                        r.Recomendations = patient.Recomendations;
-                        currentpacient.AppointmentStories.Add(r);
-                        patient = currentpacient;
-                        Receptions = patient.AppointmentStories;
-                        string jsonString = JsonSerializer.Serialize(currentpacient);
+                        r.Diagnosis = reception.Diagnosis;
+                        r.Recomendations = reception.Recomendations;
+                        patients.AppointmentStories.Add(r);
+                        Receptions = patients.AppointmentStories;
+                        string jsonString = JsonSerializer.Serialize(patients);
                         string fileName = $"P_{i.ToString().PadLeft(7, '0')}.json";
                         File.WriteAllText(fileName, jsonString);
                         MessageBox.Show($"Ваш ID={i.ToString().PadLeft(7, '0')}");
@@ -98,7 +106,7 @@ namespace Практика_7.Pages
                     }
                     else
                     {
-                        MessageBox.Show($"Есть пустые поля {patient.Last_Name} {patient.Middle_Name} {patient.BirthDay} {patient.Diagnosis} {patient.Recomendations}");
+                        MessageBox.Show($"Есть пустые поля {patients.Last_Name} {patients.Middle_Name} {patients.BirthDay} {patients.Diagnosis} {patients.Recomendations}");
                     }
                 }
                 else
